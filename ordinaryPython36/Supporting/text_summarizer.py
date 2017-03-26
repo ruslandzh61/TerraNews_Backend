@@ -46,7 +46,10 @@ class FrequencySummarizer:
           which represent the summary of text.
         """
         sents = sent_tokenize(text)
-        assert n <= len(sents)
+        if n <= len(sents):
+            print ("Was not able to summarize: ", text)
+            return text
+
         word_sent = [word_tokenize(s.lower()) for s in sents]
         self._freq = self._compute_frequencies(word_sent)
         ranking = defaultdict(int)
@@ -73,8 +76,9 @@ def summarizeURL(url, total_pars):
 
     return " ".join(final_summary)
 
-
+"""
 url = "http://www.politico.com/magazine/story/2017/02/what-happened-while-trump-was-tweeting-214777"
 
 final_summary = summarizeURL(url, 5)
 print(final_summary)
+"""

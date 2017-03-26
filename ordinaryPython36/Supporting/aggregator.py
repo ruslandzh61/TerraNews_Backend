@@ -1,33 +1,83 @@
 import feedparser
-import urllib.error
-from ordinaryPython36.Supporting.services import ArticleService, FeedService, SimilarArticleListService
+from ordinaryPython36.Supporting.services import FeedService
+from ordinaryPython36.Supporting.text_summarizer import FrequencySummarizer
+from ordinaryPython36.models import Feed, Article
 from newspaper import Article as newspaperArticle
-from ordinaryPython36.models import Feed, Article, SimilarArticleList
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import linear_kernel
+from time import mktime
+from datetime import datetime
+import urllib.error
 
 
 class Aggregator:
+    frequencySummarizer = FrequencySummarizer()
     def aggregate(self, category_id):
+        print("Aggregate category: %d", category_id)
+        print("-----------------------------------")
         fds = FeedService()
         feedmodels = fds.get_feeds_by_category_id(category_id)
         for feedmodel in feedmodels:
             try:
+                print("aggregate: " + feedmodel.url)
                 feed = feedparser.parse(feedmodel.url)
-                for item in feed.entries:
-                    # check if it is already contained in the database
-                    if Article.objects.filter(url=item.link).count() > 0:
+
+                if 'feed' in feed and 'updated_parsed' in feed.feed:
+                    updated_parsed = datetime.fromtimestamp(mktime(feed.feed['updated_parsed']))
+                    if feedmodel.last_updated == updated_parsed:
+                        print("Feed has not been updated yet")
                         continue
 
-                    # parsing
-                    parser = newspaperArticle(item.link)
+                    feedmodel.last_updated = updated_parsed
+                    feedmodel.save()
+
+                for article in feed.entries:
+                    #item
+                    # check if it is already contained in the database in the same feed
+                    if Article.objects.filter(url=article.link, feed=feedmodel).count() > 0:
+                        print("Article already exists in the same feed")
+                        continue #'break' if there is the same link from this feed, problem: articles in feed may non be ordered according to the date
+
+                    #check if it is already contained in the database in any other feed
+                    if Article.objects.filter(url=article.link).count() > 0:
+                        print("Article ", article.link, " (feed:", feedmodel.id, ") " "already exists in another feed")
+                        continue
+
+                    # preprocessing article
+                    parser = newspaperArticle(article.link)
                     parser.download()
-                    parser.parse()
+                    if parser.is_downloaded:
+                        parser.parse()
+                    else:
+                        print("newspaper failed to download article: ", article.link)
+
+                    publish_date = None
+                    if 'published_parsed' in article:
+                        try:
+                            publish_date = datetime.fromtimestamp(mktime(article.published_parsed))
+                        except TypeError:
+                            print("publish_date is not of type tuple or struct_time")
+                            if publish_date is not None:
+                                publish_date = datetime(article.published_parsed)
+                            else:
+                                publish_date = parser.publish_date
+                                #if publish_date is None:
+                                    #publish_date = datetime.fromtimestamp(mktime(datetime.now()))
+
+                    title = article.title
+                    if title is None:
+                        title = parser.title
+
+                    summary = None
+                    if 'summary' in article:
+                        summary = article.summary
+                        if summary is None or ( summary is not None and summary == ''):
+                            summary = Aggregator.frequencySummarizer.summarize(parser.text.replace("\n", " "), 5)
+                            print("Summerize: " + article.link)
 
                     # add to database
-                    Article.objects.create (
-                        url=item.link, title=parser.title,
-                        text=parser.text, date=parser.publish_date,
+                    Article.objects.create(
+                        url=article.link, title=title,
+                        text=parser.text, date=publish_date,
+                        summary=summary,
                         top_image=parser.top_image, feed=feedmodel)
 
                     # Tagging
@@ -38,38 +88,5 @@ class Aggregator:
                     #t = TextBlob(article.text)
                     #print(t.sentiment.polarity)
             except urllib.error.URLError:
-                print("Incorrect URL specified")
+                print("Invalid URL specified: " + feedmodel.url)
                 continue
-
-
-class ContentEngine:
-    def train(self, category_id):
-        article_list_of_dicts = ArticleService().get_articles_by_category_id(category_id).values('id', 'text').order_by(
-            'id')
-        artcle_ids = article_list_of_dicts.values_list('id', flat=True)
-        artcle_texts = article_list_of_dicts.values_list('title', flat=True)
-        tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 3), min_df=0, stop_words='english')
-
-        tfidf_matrix = tf.fit_transform(artcle_texts)
-
-        cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
-
-        for idx in range(0, article_list_of_dicts.count()):  # article_dic instead idx and row
-            # article_ids[idx] - current article id
-            """x = numpy.array([1.48,1.41,0.0,0.1])
-                        print x.argsort()
-                        [2 3 1 0]"""
-            similar_indices = cosine_similarities[idx].argsort()[:-12:-1]  # get indices of 10 most similar items
-            similar_articles = []
-            for i in similar_indices:
-                if cosine_similarities[idx][i] < 0.05:
-                    break
-                if i == idx:
-                    continue
-
-                similar_articles.append(str(artcle_ids[int(i)]))
-            SimilarArticleList.objects.create(
-                similar_articles=', '.join(similar_articles), article=Article.objects.get(id=artcle_ids[idx]))
-
-    def predict(self, article):
-        return SimilarArticleListService().get_similar_articles(article)

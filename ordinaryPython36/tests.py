@@ -1,13 +1,17 @@
 from django.test import TestCase
-from ordinaryPython36.Supporting.services import ArticleService, SimilarArticleListService
-from ordinaryPython36.Supporting.aggregator import Aggregator, ContentEngine
+from ordinaryPython36.Supporting.services import ArticleService, SimilarArticleListService, FeedService
+from ordinaryPython36.Supporting.aggregator import Aggregator
 from ordinaryPython36.models import *
+from ordinaryPython36.Supporting.recsys import ContentEngine
 import time
 from ordinaryPython36.Supporting.text_summarizer import FrequencySummarizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from ordinaryPython36.models import Article, SimilarArticleList
+from sklearn.metrics.pairwise import linear_kernel
 # Create your tests here.
 
 
-"""class AggregatorTestCase():
+class AggregatorTestCase():
     def test_aggregator(self, category_id=1):
         a = Aggregator()
         a.aggregate(category_id)
@@ -19,7 +23,8 @@ class ModelsTestCase:
         #print(a.values('id', 'title')[0]['id']) # print id of first dict
         #print (a.values_list('title', flat=True)) #.values('title'))
 
-        article_list_of_dicts = ArticleService().get_articles_by_category_id(category_id).values('id', 'text').order_by('id')
+        article_list_of_dicts = ArticleService().get_articles_by_category_id_including_children(
+            category_id).values('id', 'text').order_by('id')
         artcle_ids = article_list_of_dicts.values_list('id', flat=True)
         artcle_texts = article_list_of_dicts.values_list('title', flat=True)
         tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 3), min_df=0, stop_words='english')
@@ -53,17 +58,51 @@ class ModelsTestCase:
             #print(flattened)
             #print(artcle_ids[idx])
             #print(similar_items[1:])
-            #print("--------------")"""
+            #print("--------------")
 
 
-#a = Aggregator()
-#a.aggregate(category_id=1)
+class ArticleServiceTestCase:
+    def get_articles_by_category_id_including_children_sum(self):
+        sum = 0
+        for i in range(13):
+            if i < 3: continue
+            sum += ArticleService().get_articles_by_category_id_including_children(i).count()
+        print(sum)
 
-"""article = Article.objects.get(id=96)
+
+#--------#--------#--------#--------#--------#--------#--------#--------#--------#--------#--------
+#print(SimilarArticleListService().get_similar_articles(158))
+
+#print(SimilarArticleListService().get_similiarity_list(article_id=158))
+#resulting = [1, 2, 3, 4] + list(set([3, 4, 5]) - set([1, 2, 3, 4]))
+#print(resulting)
+
+"""
+contentEngine = ContentEngine()
+for i in range(14):
+    if i < 6: continue
+    contentEngine.train(i)
+"""
+
+beg = 3
+end = 13
+id = beg
+
+a = Aggregator()
+while id <= end:
+    a.aggregate(category_id=id)
+    id += 1
+
+"""
+article = Article.objects.get(id=96)
 similar_articles = ContentEngine().predict(article)
 for i in similar_articles:
-    print(i)"""
+    print(i)
+"""
+
+"""
 fs = FrequencySummarizer()
 for a in Article.objects.all():
     a.summary = fs.summarize(a.text.replace("\n"," "), 5)
     a.save()
+"""

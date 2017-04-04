@@ -1,10 +1,29 @@
-from ordinaryPython36.models import Category, Feed, Article, SimilarArticleList
+from ordinaryPython36.models import Category, Feed, Article, SimilarArticleList, UserProfile
 from itertools import chain
+
+class UserProfileService:
+    def addUserProfile(self, uid, name=None, email=None, picture=None):
+        userProfile = UserProfile(uid=uid, name=name, email=email, picture=picture)
+        userProfile.save()
 
 class CategoryService:
     def addcategory(self, name):
         category = Category(name=name)
         category.save()
+
+    def get_root_categories(self):
+        return Category.objects.filter(parent=None)
+
+    def getAll(self):
+        return Category.objects.all()
+
+    def getCategoriesByName(self, names=[]):
+        return Category.objects.filter(name__in=names)
+
+    def getParentWithChildren(self, category):
+        child_categories = Category.objects.filter(parent=category)
+        parent_category = Category.objects.get(id=category)
+        return list(chain(parent_category, child_categories))
 
 
 class FeedService:
@@ -32,7 +51,6 @@ class ArticleService:
     def get_articles_by_category_id_including_children(self, root_category_id):
         feeds = FeedService().get_feeds_by_category_id_including_children(root_category_id)
         return Article.objects.filter(feed_id__in=feeds)
-
 
 class SimilarArticleListService:
     def get_similar_articles(self, article_id):

@@ -90,3 +90,13 @@ class Aggregator:
             except urllib.error.URLError:
                 print("Invalid URL specified: " + feedmodel.url)
                 continue
+
+    def update_publisher_logo(self):
+        f = Feed.objects.all().distinct('publisher')
+        for fi in f:
+            p = fi.publisher
+            print(p.name)
+            feed = feedparser.parse(fi.url)
+            if 'feed' in feed and 'image' in feed.feed and 'link' in feed.feed.image:
+                p.logo = feed.feed.image.link
+                p.save()

@@ -8,6 +8,7 @@ from ordinaryPython36.Supporting.text_summarizer import FrequencySummarizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from ordinaryPython36.models import Article, SimilarArticleList
 from sklearn.metrics.pairwise import linear_kernel
+
 # Create your tests here.
 
 
@@ -78,20 +79,21 @@ class ArticleServiceTestCase:
 #print(resulting)
 
 """
-contentEngine = ContentEngine()
-for i in range(14):
-    if i < 6: continue
-    contentEngine.train(i)
-"""
-
-beg = 3
-end = 13
+beg = 32
+end = 3
 id = beg
 
 a = Aggregator()
-while id <= end:
+while id >= end:
     a.aggregate(category_id=id)
-    id += 1
+    id -= 1
+
+contentEngine = ContentEngine()
+for i in range(14):
+    if i < 3: continue
+    contentEngine.train(i)
+"""
+
 
 """
 article = Article.objects.get(id=96)

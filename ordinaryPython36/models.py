@@ -1,13 +1,22 @@
 from django.db import models
 from django.core.validators import int_list_validator
 
-
 # Create your models here.
+
+class UserProfile(models.Model):
+    uid = models.TextField(null=False, unique=True)
+    name = models.TextField(max_length=100, null=True)
+    email = models.EmailField(null=True)
+    picture = models.URLField(null=True)
+
 
 class Publisher(models.Model):
     name = models.TextField(max_length=100, null=False)
     description = models.TextField(null=True)
-    logo = models.ImageField(null=True)
+    logo = models.URLField(null=True)
+
+    def __str__(self):
+        return self.name
 
 class Region(models.Model):
     name = models.TextField(max_length=100, null=False)
@@ -19,7 +28,7 @@ class Region(models.Model):
 
 class Category(models.Model):
     name = models.TextField()
-    parent = models.ForeignKey('self', null=True) #self reference
+    parent = models.ForeignKey('self', null=True)  # self reference
 
     def __str__(self):
         return self.name

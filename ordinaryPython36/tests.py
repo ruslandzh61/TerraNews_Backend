@@ -2,12 +2,13 @@ from django.test import TestCase
 from ordinaryPython36.Supporting.services import ArticleService, SimilarArticleListService, FeedService
 from ordinaryPython36.Supporting.aggregator import Aggregator
 from ordinaryPython36.models import *
-from ordinaryPython36.Supporting.recsys import ContentEngine
+from ordinaryPython36.Supporting.recsys import ContentEngine, KNN
 import time
 from ordinaryPython36.Supporting.text_summarizer import FrequencySummarizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from ordinaryPython36.models import Article, SimilarArticleList
 from sklearn.metrics.pairwise import linear_kernel
+from collections import namedtuple
 
 # Create your tests here.
 
@@ -78,6 +79,30 @@ class ArticleServiceTestCase:
 #resulting = [1, 2, 3, 4] + list(set([3, 4, 5]) - set([1, 2, 3, 4]))
 #print(resulting)
 
+class ReadRatingsTest:
+    def read_ratings(self, flname):
+        Rating = namedtuple("Rating", ["user_id", "movie_id", "rating", "timestamp"])
+        ratings = []
+        with open(flname) as fl:
+            for ln in fl:
+                user_id, movie_id, rating, timestamp = ln.strip().split("::")
+                ratings.append(Rating(user_id=int(user_id) - 1,
+                             movie_id=int(movie_id) - 1,
+                             rating=float(rating),
+                             timestamp=int(timestamp)))
+        return ratings
+
+
+
+
+rr = ReadRatingsTest().read_ratings("ordinaryPython36/ml-1m/ratings.dat") #  actual user_ids and movie-ids are +1
+knn = KNN()
+training, testing, users_train_dict, users_predict_dict = knn.get_data(rr, 200, 3)
+user_recommended_movies_dict = knn.predict(training, testing)
+for user in user_recommended_movies_dict.keys():
+    print(users_train_dict[user], user, user_recommended_movies_dict[user])
+# for r in rr:
+#    print(r.user_id, r.movie_id, r.rating, r.timestamp)
 """
 beg = 32
 end = 3

@@ -6,6 +6,7 @@ from newspaper import Article as newspaperArticle
 from time import mktime
 from datetime import datetime
 import urllib.error
+from django.utils import timezone
 
 
 class Aggregator:
@@ -60,7 +61,7 @@ class Aggregator:
                             else:
                                 publish_date = parser.publish_date
                                 #if publish_date is None:
-                                    #publish_date = datetime.fromtimestamp(mktime(datetime.now()))
+                                    #publish_date = timezone.now()
 
                     title = article.title
                     if title is None:

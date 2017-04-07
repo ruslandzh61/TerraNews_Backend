@@ -1,10 +1,17 @@
-from ordinaryPython36.models import Category, Feed, Article, SimilarArticleList, UserProfile
+from ordinaryPython36.models import Category, Feed, Article, SimilarArticleList, UserProfile, UserArticleInteraction
 from itertools import chain
 
 class UserProfileService:
     def addUserProfile(self, uid, name=None, email=None, picture=None):
         userProfile = UserProfile(uid=uid, name=name, email=email, picture=picture)
         userProfile.save()
+
+
+class UserArticleInteractionService:
+    def add_article_to_user_history(self, date_accessed, user, article):
+        uai = UserArticleInteraction(date_accessed=date_accessed, user=user, article=article)
+        uai.save()
+
 
 class CategoryService:
     def addcategory(self, name):
@@ -51,6 +58,32 @@ class ArticleService:
     def get_articles_by_category_id_including_children(self, root_category_id):
         feeds = FeedService().get_feeds_by_category_id_including_children(root_category_id)
         return Article.objects.filter(feed_id__in=feeds)
+
+    # return dictionary mapping article indices with article ids
+    def get_newest_articles_in_category(self, category_id, size):
+        articles = self.get_articles_by_category_id_including_children(
+            root_category_id=category_id).order_by('-date')[:size]
+        idx = 0
+        idx_article_id_dict = dict()
+        for article in articles:
+            idx_article_id_dict[idx] = article.id
+            idx += 1
+        return idx_article_id_dict
+
+        # return dictionary mapping article indices with article ids
+
+    def get_newest_articles_in_category_by_percentage(self, category_id, percentage):
+        tmp_art = self.get_articles_by_category_id_including_children(
+            root_category_id=category_id).order_by('-date')
+        size = int(percentage * tmp_art.count())
+        articles = tmp_art[:size]
+        idx = 0
+        idx_article_id_dict = dict()
+        for article in articles:
+            idx_article_id_dict[idx] = article.id
+            idx += 1
+        return idx_article_id_dict
+
 
 class SimilarArticleListService:
     def get_similar_articles(self, article_id):

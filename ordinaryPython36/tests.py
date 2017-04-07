@@ -1,14 +1,17 @@
 from django.test import TestCase
 from ordinaryPython36.Supporting.services import ArticleService, SimilarArticleListService, FeedService
 from ordinaryPython36.Supporting.aggregator import Aggregator
-from ordinaryPython36.models import *
 from ordinaryPython36.Supporting.recsys import ContentEngine, KNN
+from ordinaryPython36.Supporting.generators.user_interaction_generator import UserArticleInteractionGenerator
 import time
 from ordinaryPython36.Supporting.text_summarizer import FrequencySummarizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from ordinaryPython36.models import Article, SimilarArticleList
+from ordinaryPython36.models import Article, SimilarArticleList, UserArticleInteraction
 from sklearn.metrics.pairwise import linear_kernel
 from collections import namedtuple
+import random
+from django.utils import timezone
+from datetime import timedelta
 
 # Create your tests here.
 
@@ -71,7 +74,21 @@ class ArticleServiceTestCase:
             sum += ArticleService().get_articles_by_category_id_including_children(i).count()
         print(sum)
 
+class PeriodicTaskPerformer:
+    def performTasks(self):
+        beg = 32
+        end = 3
+        id = beg
 
+        a = Aggregator()
+        while id >= end:
+            a.aggregate(category_id=id)
+            id -= 1
+
+        contentEngine = ContentEngine()
+        for i in range(14):
+            if i < 3: continue
+            contentEngine.train(i)
 #--------#--------#--------#--------#--------#--------#--------#--------#--------#--------#--------
 #print(SimilarArticleListService().get_similar_articles(158))
 
@@ -94,7 +111,7 @@ class ReadRatingsTest:
 
 
 
-
+"""
 rr = ReadRatingsTest().read_ratings("ordinaryPython36/ml-1m/ratings.dat") #  actual user_ids and movie-ids are +1
 knn = KNN()
 training, testing, users_train_dict, users_predict_dict = knn.get_data(rr, 200, 3)
@@ -104,21 +121,11 @@ for user in user_recommended_movies_dict.keys():
 # for r in rr:
 #    print(r.user_id, r.movie_id, r.rating, r.timestamp)
 """
-beg = 32
-end = 3
-id = beg
 
-a = Aggregator()
-while id >= end:
-    a.aggregate(category_id=id)
-    id -= 1
+#uaig = UserArticleInteractionGenerator()
+#uaig.generate(user_id=5, category_id=11, percentage_of_newest_articles=0.5)
 
-contentEngine = ContentEngine()
-for i in range(14):
-    if i < 3: continue
-    contentEngine.train(i)
-"""
-
+#PeriodicTaskPerformer().performTasks()
 
 """
 article = Article.objects.get(id=96)

@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from ordinaryPython36.models import Article, Category, UserProfile
+from ordinaryPython36.models import Article, Category, UserProfile, UserArticleInteraction
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -16,6 +16,13 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return UserProfile.objects.create(**validated_data)
+
+
+class UserArticleInteractionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserArticleInteraction
+        fields = ('id', 'date_accessed', 'user', 'article')
+
 
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:

@@ -69,6 +69,12 @@ class SimilarArticleList(models.Model):
         return str(self.article_id) + ": " + self.similar_articles
 
 
+class UserArticleInteraction(models.Model):
+    date_accessed = models.DateTimeField(null=False)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, null=False)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=False)
+
+
 class ArticleTrain(models.Model):
     url = models.URLField(default="")  # default max length=200
     top_image = models.URLField(max_length=2000, null=True)

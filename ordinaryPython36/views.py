@@ -1,11 +1,19 @@
 from django.shortcuts import render
-from ordinaryPython36.models import Article, SimilarArticleList, UserProfile
-from ordinaryPython36.Supporting.services import SimilarArticleListService, CategoryService, ArticleService, UserProfileService
-from ordinaryPython36.Supporting.serializers import ArticleSerializer, CategorySerializer
+from ordinaryPython36.models import Article, SimilarArticleList, UserProfile, UserArticleInteraction
+from ordinaryPython36.Supporting.services import SimilarArticleListService, CategoryService, ArticleService, \
+    UserProfileService, UserArticleInteractionService
+from ordinaryPython36.Supporting.serializers import ArticleSerializer, CategorySerializer, UserProfileSerializer, \
+    UserArticleInteractionSerializer
 import requests
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+import datetime
+from datetime import datetime
+from django.utils import timezone
+
+from time import mktime
+
 # Create your views here.
 
 
@@ -13,22 +21,51 @@ class UserProfileList(APIView):
     serializer_class = UserProfile
 
     def post(self, request, format=None):
+        if "uid" in request.data:
+            print("manually add user")
+            uid = request.data["uid"]
+            user = UserProfile.objects.filter(uid=uid)
+            if user is not None:
+                user.update(**request.data)
+                print("user updated")
+                return Response(status=status.HTTP_201_CREATED)
+
         try:
-            serializer = UserProfile(data=request.data)
-            print(request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return  Response(serializer.data, status=status.HTTP_201_CREATED)
+            UserProfile.objects.create(**request.data)
+            print("user created")
+            return Response(status=status.HTTP_201_CREATED)
         except:
-            if "uid" in request.data:
-                print("manually add user")
-                uid = request.data["uid"]
-                print()
-                UserProfileService().addUserProfile(uid=uid)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            UserProfileService().addUserProfile(uid=uid)
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserArticleInteractionList(APIView):
+    serializer_class = UserArticleInteraction
+
+    def post(self, request, format=None):
+        # serializer = UserArticleInteraction(data=request.data)
+        # if serializer.is_valid():
+        #     print("user accessed article")
+        #     serializer.save()
+        #     return  Response(serializer.data, status=status.HTTP_201_CREATED)
+        print(request.data)
+        try:
+            UserArticleInteraction.objects.create(**request.data)
+            return Response(status=status.HTTP_201_CREATED)
+        except:
+            if 'user' in request.data and 'article' in request.data:
+                user = UserProfile.objects.get(uid=request.data["user"])
+                article = Article.objects.get(id=request.data["article"])
+                UserArticleInteraction.objects.create(user=user, article=article,
+                                                      date_accessed = timezone.now())
+                return Response(status=status.HTTP_201_CREATED)
+            else:
+                print("invalid json")
+                return Response(status=status.HTTP_400_BAD_REQUEST)
+
 
 class ArticleList(APIView):
-    def get(self,request,format=None):
+    def get(self, request, format=None):
         if "feed" in request.GET:
             feed = request.GET["feed"]
             if  "size" in request.GET:
@@ -45,6 +82,7 @@ class ArticleList(APIView):
         elif "recommend" in request.GET:
             return None
         return None
+
 
 class ArticleListByCategory(APIView):
     def get(self,request,format=None):
@@ -64,17 +102,17 @@ class ArticleListByCategory(APIView):
         else:
             return None
 
+
 class RecommendedArticleList(APIView):
     def get(self, request, format=None):
         if "article" in request.GET:
             article_id = request.GET["article"]
-            recommended_articles = SimilarArticleListService().get_similar_articles(article_id)
+            recommended_articles = SimilarArticleListService().get_similar_articles(article_id).order_by("-date")[:5]
             serializer = ArticleSerializer(recommended_articles, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return None
 
-        return None
 
 class CategoryList(APIView):
     def get(self, request, format=None):

@@ -20,10 +20,9 @@ class PeriodicTaskPerformer:
             a.aggregate(category_id=category.id)
 
     def perform_article_similarity_calculation(self):
-        contentEngine = ContentEngine()
         for i in range(14):
             if i < 3: continue
-            contentEngine.train(i)
+            ContentEngine(i).train()
 
     def perform_user_similarity_calculation_in_category(self):
         for category in Category.objects.all():

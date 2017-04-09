@@ -4,7 +4,7 @@ from collections import defaultdict
 from string import punctuation
 from heapq import nlargest
 from newspaper import Article as newspaperArticle
-#from ordinaryPython36.models import Article
+#from aggregator.models import Article
 
 
 class FrequencySummarizer:
@@ -19,7 +19,7 @@ class FrequencySummarizer:
         self._stopwords = set(stopwords.words('english') + list(punctuation))
 
 
-    def _compute_frequencies(self, word_sent):
+    def __compute_frequencies(self, word_sent):
         """
           Compute the frequency of each of word.
           Input:
@@ -51,7 +51,7 @@ class FrequencySummarizer:
             return text
 
         word_sent = [word_tokenize(s.lower()) for s in sents]
-        self._freq = self._compute_frequencies(word_sent)
+        self._freq = self.__compute_frequencies(word_sent)
         ranking = defaultdict(int)
         for i, sent in enumerate(word_sent):
             for w in sent:

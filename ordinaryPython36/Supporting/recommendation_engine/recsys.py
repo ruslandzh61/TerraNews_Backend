@@ -11,11 +11,14 @@ import numpy as np
 import scipy.sparse as sp
 from collections import namedtuple
 from ordinaryPython36.models import UserToCategory, UserSimilarityInCategory, UserProfile, Category
+from django.core.exceptions import ObjectDoesNotExist
 
 class ContentEngine:
-    def train(self, category_id):
+    def __init__(self, category_id):
+        self.category_id = category_id
+    def train(self):
         article_list_of_dicts = ArticleService().get_articles_by_category_id_including_children(
-            category_id).values('id', 'text').order_by('id')
+            self.category_id).values('id', 'text').order_by('id')
         if article_list_of_dicts.count() < 1:
             return
 
@@ -86,6 +89,7 @@ class KNN:
 
         if self.__is_empty__:
             return False
+
         try:
             training, users_train_dict = self.__get_data__()
             # user_recommended_movies_dict = knn.predict(training) # if rating is not binary
@@ -108,14 +112,19 @@ class KNN:
                         continue
                     neighbor_user = UserProfile.objects.get(id=users_train_dict[neighbor_indices[idx][j]])
 
-                    obj, created = UserSimilarityInCategory.objects.update_or_create(
-                        user_category=user_to_category, similar_user=neighbor_user, similarity_ratio=neighbor_similarity)
-                    actual_neighbors.append(obj.similar_user)
-
-                    if created:
-                        print("neighbor created")
-                    else:
+                    try:
+                        temp = UserSimilarityInCategory.objects.get(
+                            user_category=user_to_category, similar_user=neighbor_user)
+                        temp.similarity_ratio = neighbor_similarity
+                        temp.save()
                         print("neighbor updated")
+                    except ObjectDoesNotExist:
+                        temp = UserSimilarityInCategory.objects.create(
+                            user_category=user_to_category, similar_user=neighbor_user,
+                            similarity_ratio=neighbor_similarity)
+                        print("neighbor created")
+                    actual_neighbors.append(temp.similar_user)
+
                 print(user, actual_neighbors)
                 # delete obsolete users
                 UserSimilarityInCategory.objects.filter(user_category=user_to_category).exclude(
@@ -123,8 +132,8 @@ class KNN:
 
             return True
         except:
-            print("too little amount of interactions")
-            return False
+           print("too little amount of interactions")
+           return False
 
     def __prepare_data__(self):
         # fetch ratings

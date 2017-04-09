@@ -7,8 +7,12 @@ from sklearn.metrics.pairwise import linear_kernel
 from django.utils import timezone
 from datetime import timedelta
 from ordinaryPython36.Supporting.periodic_task_performer import PeriodicTaskPerformer
-from ordinaryPython36.models import UserToCategory, UserSimilarityInCategory, UserProfile, Category
+from ordinaryPython36.models import UserToCategory, UserSimilarityInCategory, UserProfile, Category,\
+    UserArticleInteraction, Feed
 from django.db.models import Count
+from ordinaryPython36.Supporting.generators.user_interaction_generator import UserArticleInteractionGenerator
+from ordinaryPython36.Supporting.recommendation_engine.recommender import UserCategoryRecommendationEngine
+from ordinaryPython36.Supporting.generators.datetime_generator import DatetimeGenerator
 from ordinaryPython36.Supporting.generators.user_interaction_generator import UserArticleInteractionGenerator
 # Create your tests here.
 
@@ -109,17 +113,38 @@ for user in user_recommended_movies_dict.keys():
 # for i in car.get_recommended(5, 11, 10):
 #    print(i)
 #PeriodicTaskPerformer().perform_all_tasks()
-PeriodicTaskPerformer().perform_user_similarity_calculation_in_category()
-
-
-
-
 #PeriodicTaskPerformer().perform_user_similarity_calculation_in_category()
+#
 
+# date_begin = timezone.now() - timedelta(days=10)
+#
+# result = UserCategoryRecommendationEngine(user_id=5, category_id=11).make_recommendations()
+# for a in result:
+#     print(a)
+# print(len(result))
+
+# result = list(UserArticleInteraction.objects.filter(article__feed__category__exact=11,
+#            article__date__gt=date_begin).values('article').annotate(itemcount=Count('article')).order_by(
+#     '-itemcount').values('article', 'itemcount'))
+# for i in result:
+#     print(i['article'], i['itemcount'])
+
+PeriodicTaskPerformer().perform_user_similarity_calculation_in_category()
+#PeriodicTaskPerformer().perform_aggregation()
+#PeriodicTaskPerformer().perform_article_similarity_calculation()
+
+
+"""
+uai = UserArticleInteractionGenerator()
+for category in Category.objects.all():
+    for user in UserProfile.objects.all():
+        uai.generate(category_id=category.id, user_id=user.id, percentage_of_newest_articles=0.1)
+"""
 """
 article = Article.objects.get(id=96)
 similar_articles = ContentEngine().predict(article)
 for i in similar_articles:
     print(i)
 """
+
 

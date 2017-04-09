@@ -2,7 +2,7 @@
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 from ordinaryPython36.views import ArticleList, RelatedArticleList, CategoryList, ArticleListByCategory, \
-    UserProfileList, UserArticleInteractionList
+    UserProfileList, UserArticleInteractionList, CategoryRecommendationList
 
 
 urlpatterns = [
@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^api/v1/categoryarticles$', ArticleListByCategory.as_view()),
     url(r'^api/v1/users$', UserProfileList.as_view()),
     url(r'^api/v1/userarticleinteraction$', UserArticleInteractionList.as_view()),
+    url(r'^api/v1/categoryrecommendation$', CategoryRecommendationList.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

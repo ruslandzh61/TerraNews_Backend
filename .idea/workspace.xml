@@ -2,15 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b17fe5bd-fac2-4dad-9b1d-0c336a708cd7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/periodic_task_performer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recommender.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0017_userprofile_similar_users.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0018_auto_20170408_1257.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0019_auto_20170408_1638.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/recsys.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recsys.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/d2cddaa7-d4ef-4bb9-bdea-6ed845b915c1.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/d2cddaa7-d4ef-4bb9-bdea-6ed845b915c1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/aggregator.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/aggregator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/generators/datetime_generator.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/generators/datetime_generator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/generators/user_interaction_generator.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/generators/user_interaction_generator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/periodic_task_performer.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/periodic_task_performer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recommender.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recommender.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recsys.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recsys.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/serializers.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/serializers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/services.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/services.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/Supporting/text_summarizer.py" afterPath="$PROJECT_DIR$/ordinaryPython36/Supporting/text_summarizer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/apps.py" afterPath="$PROJECT_DIR$/ordinaryPython36/apps.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0002_auto_20170213_1658.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0002_auto_20170213_1658.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0003_auto_20170214_0517.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0003_auto_20170214_0517.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0004_auto_20170214_0517.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0004_auto_20170214_0517.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0005_auto_20170214_0914.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0005_auto_20170214_0914.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0006_auto_20170214_0921.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0006_auto_20170214_0921.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0007_similararticlelist.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0007_similararticlelist.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0008_article_summary.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0008_article_summary.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0009_auto_20170313_1405.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0009_auto_20170313_1405.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0010_articletrain.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0010_articletrain.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0011_feed_last_updated.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0011_feed_last_updated.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0012_auto_20170316_1233.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0012_auto_20170316_1233.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0013_auto_20170318_0431.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0013_auto_20170318_0431.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0014_userprofile.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0014_userprofile.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0015_auto_20170331_1114.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0015_auto_20170331_1114.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0016_userarticleinteraction.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0016_userarticleinteraction.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0017_userprofile_similar_users.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0017_userprofile_similar_users.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0018_auto_20170408_1257.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0018_auto_20170408_1257.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/migrations/0019_auto_20170408_1638.py" afterPath="$PROJECT_DIR$/ordinaryPython36/migrations/0019_auto_20170408_1638.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/models.py" afterPath="$PROJECT_DIR$/ordinaryPython36/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/tests.py" afterPath="$PROJECT_DIR$/ordinaryPython36/tests.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ordinaryPython36/urls.py" afterPath="$PROJECT_DIR$/ordinaryPython36/urls.py" />
@@ -57,47 +78,23 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ordinaryPython36/tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ordinaryPython36/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ordinaryPython36/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+            <state relative-caret-position="150">
+              <caret line="10" column="15" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ordinaryPython36/models.py">
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ordinaryPython36/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="944">
-              <caret line="100" column="23" lean-forward="false" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
+            <state relative-caret-position="15">
+              <caret line="120" column="11" lean-forward="false" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,20 +103,58 @@
       <file leaf-file-name="periodic_task_performer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/periodic_task_performer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="30" lean-forward="false" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#61#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="330">
+              <caret line="24" column="35" lean-forward="false" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recsys.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_interaction_generator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/generators/user_interaction_generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datetime_generator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/generators/datetime_generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="9" column="52" lean-forward="false" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ordinaryPython36/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1035">
+              <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ordinaryPython36/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recsys.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recsys.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="140" column="32" lean-forward="true" selection-start-line="140" selection-start-column="32" selection-end-line="140" selection-end-column="32" />
+            <state relative-caret-position="3075">
+              <caret line="218" column="21" lean-forward="false" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
               <folding>
                 <element signature="e#0#147#0" expanded="true" />
               </folding>
@@ -127,23 +162,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recommender.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recommender.py">
+      <file leaf-file-name="text_summarizer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/text_summarizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="60" lean-forward="false" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
-              <folding />
+            <state relative-caret-position="210">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/services.py">
+      <file leaf-file-name="aggregator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/aggregator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-616">
-              <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+            <state relative-caret-position="90">
+              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
               <folding>
-                <element signature="e#0#116#0" expanded="true" />
+                <element signature="e#0#17#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,36 +197,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>textsu</find>
-      <find>if</find>
-      <find>feed</find>
-      <find>newspaperArticle</find>
-      <find>parse</find>
-      <find>feedmod</find>
-      <find>tz</find>
-      <find>link</find>
-      <find>publish</find>
-      <find>has</find>
-      <find>parser</find>
-      <find>is_d</find>
-      <find>rank</find>
-      <find>artic</find>
-      <find>enab</find>
-      <find>published_parsed</find>
-      <find>roc_auc_score</find>
-      <find>read_ratings</find>
-      <find>save</find>
-      <find>seria</find>
-      <find>now</find>
-      <find>recom</find>
-      <find>create</find>
-      <find>modelst</find>
-      <find>sup</find>
-      <find>user_i</find>
-      <find>userarticleinteraction</find>
       <find>simi</find>
-      <find>RecommendedArticleList</find>
+      <find>datetime_begin</find>
       <find>count</find>
+      <find>timed</find>
+      <find>filt</find>
+      <find>RecommendedArticleList</find>
+      <find>listB</find>
+      <find>knn</find>
+      <find>sav</find>
+      <find>userc</find>
+      <find>deleted</find>
+      <find>userar</find>
+      <find>usercaggaa</find>
+      <find>forma</find>
+      <find>find</find>
+      <find>summ</find>
+      <find>upda</find>
+      <find>tfid</find>
+      <find>seria</find>
+      <find>find_n</find>
+      <find>get(</find>
+      <find>req</find>
+      <find>incate</find>
+      <find>values</find>
+      <find>post</find>
+      <find>similarities</find>
+      <find>gene</find>
+      <find>g</find>
+      <find>UserArticleInteractionGenerator</find>
+      <find>save</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,23 +242,30 @@
         <option value="$PROJECT_DIR$/ordinaryPython36/migrations/0008_articlesimilaritylist_update_date.py" />
         <option value="$PROJECT_DIR$/ordinaryPython36/migrations/0009_auto_20170215_1433.py" />
         <option value="$PROJECT_DIR$/Test2/settings.py" />
-        <option value="$PROJECT_DIR$/Test2/urls.py" />
         <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/parse_ratings.py" />
         <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/serializers.py" />
         <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/aggregator.py" />
         <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/generators/userinteractiongenerator.py" />
-        <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/generators/datetime_generator.py" />
         <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/generators/user_interaction_generator.py" />
-        <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/services.py" />
-        <option value="$PROJECT_DIR$/ordinaryPython36/models.py" />
         <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/text_summarizer.py" />
         <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/recsys.py" />
-        <option value="$PROJECT_DIR$/ordinaryPython36/urls.py" />
-        <option value="$PROJECT_DIR$/ordinaryPython36/views.py" />
-        <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recommender.py" />
-        <option value="$PROJECT_DIR$/ordinaryPython36/tests.py" />
-        <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/periodic_task_performer.py" />
         <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recsys.py" />
+        <option value="$PROJECT_DIR$/ordinaryPython36/urls.py" />
+        <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recommender.py" />
+        <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/services.py" />
+        <option value="$PROJECT_DIR$/ordinaryPython36/views.py" />
+        <option value="$PROJECT_DIR$/ordinaryPython36/models.py" />
+        <option value="$PROJECT_DIR$/aggregator/Supporting/services.py" />
+        <option value="$PROJECT_DIR$/Test2/urls.py" />
+        <option value="$PROJECT_DIR$/aggregator/models.py" />
+        <option value="$PROJECT_DIR$/aggregator/Supporting/aggregator.py" />
+        <option value="$PROJECT_DIR$/aggregator/Supporting/text_summarizer.py" />
+        <option value="$PROJECT_DIR$/aggregator/Supporting/recommendation_engine/recsys.py" />
+        <option value="$PROJECT_DIR$/aggregator/views.py" />
+        <option value="$PROJECT_DIR$/aggregator/tests.py" />
+        <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/periodic_task_performer.py" />
+        <option value="$PROJECT_DIR$/ordinaryPython36/Supporting/generators/datetime_generator.py" />
+        <option value="$PROJECT_DIR$/ordinaryPython36/tests.py" />
       </list>
     </option>
   </component>
@@ -362,9 +406,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="FullScreen" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/rusland/Desktop/Test2/ordinaryPython36/models.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -747,27 +792,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3018598" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34620887" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37108433" sideWeight="0.5100143" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3180723" sideWeight="0.51502144" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3180723" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37108433" sideWeight="0.4899857" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35783133" sideWeight="0.47567955" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39948782" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3180723" sideWeight="0.48497853" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.52503574" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39948782" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -779,11 +824,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3180723" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37108433" sideWeight="0.4899857" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3018598" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35783133" sideWeight="0.4899857" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3190272" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -803,52 +848,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="61" lean-forward="false" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/text_summarizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ordinaryPython36/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -863,9 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="30" column="44" lean-forward="false" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -873,9 +873,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -883,9 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#116#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -893,7 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -908,9 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -925,9 +916,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="30" column="44" lean-forward="false" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -935,9 +923,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -945,9 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#116#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -955,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -970,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,7 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1036,168 +1016,325 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test2/wsgi.py">
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/parse_ratings.py" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/django/db/models/fields/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="14">
+          <caret line="1748" column="6" lean-forward="false" selection-start-line="1748" selection-start-column="6" selection-end-line="1748" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/parse_ratings.py" />
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/serializers.py">
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/__init__.py" />
+    <entry file="uml://DjangoModelDependency/#Test2">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DjangoModelDependency</ID>
+          <OriginalElement>#Test2</OriginalElement>
+          <nodes>
+            <node x="2793.0" y="181.0">aggregator.models.CollectionArticle</node>
+            <node x="1792.0" y="159.0">aggregator.models.Collection</node>
+            <node x="1525.5" y="450.0">aggregator.models.UserProfile</node>
+            <node x="330.5" y="206.0">aggregator.models.Feed</node>
+            <node x="2207.5" y="872.0">aggregator.models.UserSimilarityInCategory</node>
+            <node x="3123.0" y="21.0">aggregator.models.OfflineArticle</node>
+            <node x="779.0" y="461.0">aggregator.models.ChannelPublisher</node>
+            <node x="1512.5" y="872.0">aggregator.models.UserToCategory</node>
+            <node x="2416.0" y="472.0">aggregator.models.UserArticleInteraction</node>
+            <node x="767.5" y="261.0">aggregator.models.Publisher</node>
+            <node x="1132.5" y="450.0">aggregator.models.Channel</node>
+            <node x="1150.0" y="661.0">aggregator.models.ChannelCategory</node>
+            <node x="62.0" y="272.0">aggregator.models.Region</node>
+            <node x="2765.0" y="417.0">aggregator.models.Article</node>
+            <node x="1139.0" y="61.0">aggregator.models.ChannelFeed</node>
+            <node x="1859.0" y="701.0">aggregator.models.TagChannel</node>
+            <node x="3312.5" y="483.0">aggregator.models.SimilarArticleList</node>
+            <node x="1163.0" y="872.0">aggregator.models.Category</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="aggregator.models.ChannelPublisher" target="aggregator.models.Publisher">
+              <point x="0.0" y="-59.0" />
+              <point x="0.0" y="59.0" />
+            </edge>
+            <edge source="aggregator.models.ChannelCategory" target="aggregator.models.Channel">
+              <point x="0.0" y="-59.0" />
+              <point x="0.0" y="70.0" />
+            </edge>
+            <edge source="aggregator.models.ChannelFeed" target="aggregator.models.Feed">
+              <point x="-141.0" y="0.0" />
+              <point x="560.0" y="120.0" />
+              <point x="40.0" y="-114.0" />
+            </edge>
+            <edge source="aggregator.models.CollectionArticle" target="aggregator.models.Collection">
+              <point x="-127.0" y="0.0" />
+              <point x="168.0" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.CollectionArticle" target="aggregator.models.Article">
+              <point x="0.0" y="59.0" />
+              <point x="0.0" y="-103.0" />
+            </edge>
+            <edge source="aggregator.models.ChannelCategory" target="aggregator.models.Category">
+              <point x="0.0" y="59.0" />
+              <point x="0.0" y="-48.0" />
+            </edge>
+            <edge source="aggregator.models.Feed" target="aggregator.models.Publisher">
+              <point x="189.5" y="0.0" />
+              <point x="-152.5" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.Channel" target="aggregator.models.UserProfile">
+              <point x="147.5" y="0.0" />
+              <point x="-114.5" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.Article" target="aggregator.models.Feed">
+              <point x="0.0" y="103.0" />
+              <point x="2920.0" y="1080.0" />
+              <point x="520.0" y="1080.0" />
+              <point x="0.0" y="114.0" />
+            </edge>
+            <edge source="aggregator.models.Category" target="aggregator.models.Category">
+              <point x="117.0" y="40.0" />
+              <point x="1440.0" y="960.0" />
+              <point x="1440.0" y="1040.0" />
+              <point x="1280.0" y="1040.0" />
+              <point x="0.0" y="48.0" />
+            </edge>
+            <edge source="aggregator.models.TagChannel" target="aggregator.models.UserProfile">
+              <point x="0.0" y="-59.0" />
+              <point x="2000.0" y="560.0" />
+              <point x="114.5" y="40.0" />
+            </edge>
+            <edge source="aggregator.models.UserSimilarityInCategory" target="aggregator.models.UserToCategory">
+              <point x="-152.5" y="0.0" />
+              <point x="127.5" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.Region" target="aggregator.models.Region">
+              <point x="0.0" y="48.0" />
+              <point x="160.0" y="440.0" />
+              <point x="0.0" y="440.0" />
+              <point x="0.0" y="320.0" />
+              <point x="-98.0" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.ChannelFeed" target="aggregator.models.Channel">
+              <point x="0.0" y="59.0" />
+              <point x="0.0" y="-70.0" />
+            </edge>
+            <edge source="aggregator.models.UserSimilarityInCategory" target="aggregator.models.UserProfile">
+              <point x="0.0" y="-48.0" />
+              <point x="2360.0" y="540.0" />
+              <point x="114.5" y="20.0" />
+            </edge>
+            <edge source="aggregator.models.UserToCategory" target="aggregator.models.UserProfile">
+              <point x="0.0" y="-48.0" />
+              <point x="0.0" y="70.0" />
+            </edge>
+            <edge source="aggregator.models.UserArticleInteraction" target="aggregator.models.Article">
+              <point x="144.0" y="0.0" />
+              <point x="-155.0" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.Feed" target="aggregator.models.Region">
+              <point x="-189.5" y="0.0" />
+              <point x="98.0" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.Feed" target="aggregator.models.Category">
+              <point x="40.0" y="114.0" />
+              <point x="560.0" y="920.0" />
+              <point x="-117.0" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.Collection" target="aggregator.models.UserProfile">
+              <point x="0.0" y="81.0" />
+              <point x="1960.0" y="480.0" />
+              <point x="114.5" y="-40.0" />
+            </edge>
+            <edge source="aggregator.models.UserToCategory" target="aggregator.models.Category">
+              <point x="-127.5" y="0.0" />
+              <point x="117.0" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.UserArticleInteraction" target="aggregator.models.UserProfile">
+              <point x="-144.0" y="0.0" />
+              <point x="114.5" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.OfflineArticle" target="aggregator.models.UserProfile">
+              <point x="-117.0" y="0.0" />
+              <point x="1640.0" y="80.0" />
+              <point x="0.0" y="-70.0" />
+            </edge>
+            <edge source="aggregator.models.SimilarArticleList" target="aggregator.models.Article">
+              <point x="-127.5" y="0.0" />
+              <point x="155.0" y="0.0" />
+            </edge>
+            <edge source="aggregator.models.Feed" target="aggregator.models.UserProfile">
+              <point x="0.0" y="-114.0" />
+              <point x="520.0" y="0.0" />
+              <point x="1600.0" y="0.0" />
+              <point x="-40.0" y="-70.0" />
+            </edge>
+            <edge source="aggregator.models.OfflineArticle" target="aggregator.models.Article">
+              <point x="0.0" y="59.0" />
+              <point x="3240.0" y="480.0" />
+              <point x="155.0" y="-40.0" />
+            </edge>
+            <edge source="aggregator.models.ChannelPublisher" target="aggregator.models.Channel">
+              <point x="141.0" y="0.0" />
+              <point x="-147.5" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.3465339860875446" x="1873.0" y="629.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/nltk/tokenize/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#50#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="975">
+          <caret line="82" column="4" lean-forward="false" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test2/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Test2/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="53" lean-forward="false" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-          <folding>
-            <element signature="e#640#680#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="300">
+          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/aggregator.py">
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/services.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="100" column="26" lean-forward="true" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/generators/datetime_generator.py">
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#13#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="244">
+          <caret line="20" column="46" lean-forward="true" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/generators/user_interaction_generator.py">
+    <entry file="file:///usr/local/lib/python3.6/site-packages/django/http/response.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#80#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-506">
+          <caret line="437" column="6" lean-forward="false" selection-start-line="437" selection-start-column="6" selection-end-line="437" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/django/db/models/fields/__init__.py">
+    <entry file="file:///usr/local/lib/python3.6/site-packages/django/views/generic/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="1748" column="6" lean-forward="false" selection-start-line="1748" selection-start-column="6" selection-end-line="1748" selection-end-column="6" />
-          <folding />
+        <state relative-caret-position="195">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/text_summarizer.py">
+    <entry file="file:///usr/local/lib/python3.6/site-packages/rest_framework/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="772">
-          <caret line="90" column="3" lean-forward="false" selection-start-line="90" selection-start-column="3" selection-end-line="90" selection-end-column="3" />
-          <folding />
+        <state relative-caret-position="15">
+          <caret line="97" column="15" lean-forward="false" selection-start-line="97" selection-start-column="15" selection-end-line="97" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/__init__.py">
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recommender.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="944">
-          <caret line="100" column="23" lean-forward="false" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ordinaryPython36/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="10" column="15" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ordinaryPython36/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="120" column="11" lean-forward="false" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/services.py">
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/periodic_task_performer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-616">
-          <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#116#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recommender.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="60" lean-forward="false" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
+        <state relative-caret-position="330">
+          <caret line="24" column="35" lean-forward="false" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/periodic_task_performer.py">
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/generators/user_interaction_generator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="30" lean-forward="false" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/generators/datetime_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="52" lean-forward="false" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/recommendation_engine/recsys.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="140" column="32" lean-forward="true" selection-start-line="140" selection-start-column="32" selection-end-line="140" selection-end-column="32" />
+        <state relative-caret-position="3075">
+          <caret line="218" column="21" lean-forward="false" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
           <folding>
             <element signature="e#0#147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/text_summarizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ordinaryPython36/Supporting/aggregator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>

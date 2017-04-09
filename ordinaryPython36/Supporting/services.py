@@ -38,8 +38,6 @@ class CategoryService:
     def getAll(self):
         return Category.objects.all()
 
-    def getCategoriesByName(self, names=[]):
-        return Category.objects.filter(name__in=names)
 
     def getParentWithChildren(self, category):
         child_categories = Category.objects.filter(parent=category)
@@ -103,6 +101,9 @@ class SimilarArticleListService:
     def get_similar_articles(self, article_id):
         try:
             similiarity_list = SimilarArticleList.objects.get(article_id=article_id).similar_articles.split(', ')
+            print("sim list:", similiarity_list)
+            if similiarity_list is None or len(similiarity_list) == 0 or not similiarity_list[0].isdigit():
+                return None
             return Article.objects.filter(pk__in=similiarity_list)
         except SimilarArticleList.DoesNotExist:
             return None

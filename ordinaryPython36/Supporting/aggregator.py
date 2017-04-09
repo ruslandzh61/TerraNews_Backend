@@ -11,6 +11,7 @@ from django.utils import timezone
 
 class Aggregator:
     frequencySummarizer = FrequencySummarizer()
+
     def aggregate(self, category_id):
         print("Aggregate category: %d", category_id)
         print("-----------------------------------")

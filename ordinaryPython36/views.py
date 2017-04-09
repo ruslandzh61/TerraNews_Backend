@@ -11,7 +11,7 @@ from rest_framework import status
 import datetime
 from datetime import datetime
 from django.utils import timezone
-
+from ordinaryPython36.Supporting.recommendation_engine.recommender import UserCategoryRecommendationEngine
 from time import mktime
 
 # Create your views here.
@@ -50,7 +50,7 @@ class UserArticleInteractionList(APIView):
         #     return  Response(serializer.data, status=status.HTTP_201_CREATED)
         print(request.data)
         try:
-            UserArticleInteraction.objects.create(**request.data)
+            UserArticleInteraction.objects.create(**request .data)
             return Response(status=status.HTTP_201_CREATED)
         except:
             if 'user' in request.data and 'article' in request.data:
@@ -59,9 +59,8 @@ class UserArticleInteractionList(APIView):
                 UserArticleInteraction.objects.create(user=user, article=article,
                                                       date_accessed = timezone.now())
                 return Response(status=status.HTTP_201_CREATED)
-            else:
-                print("invalid json")
-                return Response(status=status.HTTP_400_BAD_REQUEST)
+            print("invalid json")
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class ArticleList(APIView):
@@ -81,7 +80,7 @@ class ArticleList(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         elif "recommend" in request.GET:
             return None
-        return None
+        return Response(None, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ArticleListByCategory(APIView):
@@ -100,25 +99,36 @@ class ArticleListByCategory(APIView):
             serializer = ArticleSerializer(articles, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return None
+            return Response(None, status=status.HTTP_400_BAD_REQUEST)
 
 # get recommendations for a given category and user
 class CategoryRecommendationList(APIView):
     def get(self, request, format=None):
         if "user" in request.GET and "category" in request.GET:
-            user_id = request.GET["user"]
+            uid = request.GET["user"]
+            user_id = UserProfile.objects.get(uid=uid)
             category_id = request.GET["category"]
+            recommended_articles = UserCategoryRecommendationEngine(
+                user_id=user_id, category_id=category_id).make_recommendations()
+            serializer = ArticleSerializer(recommended_articles, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(None, status=status.HTTP_400_BAD_REQUEST)
 
 # get similar articles
 class RelatedArticleList(APIView):
     def get(self, request, format=None):
         if "article" in request.GET:
             article_id = request.GET["article"]
-            recommended_articles = SimilarArticleListService().get_similar_articles(article_id).order_by("-date")[:5]
-            serializer = ArticleSerializer(recommended_articles, many=True)
+            related_articles = SimilarArticleListService().get_similar_articles(article_id)
+            if related_articles is not None:
+                related_articles = related_articles.order_by("-date")[:5]
+            else:
+                return Response(None, status=status.HTTP_200_OK)
+            serializer = ArticleSerializer(related_articles, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return None
+            return Response(None, status=status.HTTP_400_BAD_REQUEST)
 
 
 class CategoryList(APIView):

@@ -1,18 +1,15 @@
 from django.test import TestCase
-from ordinaryPython36.Supporting.services import ArticleService, SimilarArticleListService, FeedService
+from ordinaryPython36.Supporting.services import ArticleService, UserArticleInteractionService
 from ordinaryPython36.Supporting.aggregator import Aggregator
-from ordinaryPython36.Supporting.recsys import ContentEngine, KNN
-from ordinaryPython36.Supporting.generators.user_interaction_generator import UserArticleInteractionGenerator
-import time
-from ordinaryPython36.Supporting.text_summarizer import FrequencySummarizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from ordinaryPython36.models import Article, SimilarArticleList, UserArticleInteraction
+from ordinaryPython36.models import Article, SimilarArticleList
 from sklearn.metrics.pairwise import linear_kernel
-from collections import namedtuple
-import random
 from django.utils import timezone
 from datetime import timedelta
-
+from ordinaryPython36.Supporting.periodic_task_performer import PeriodicTaskPerformer
+from ordinaryPython36.models import UserToCategory, UserSimilarityInCategory, UserProfile, Category
+from django.db.models import Count
+from ordinaryPython36.Supporting.generators.user_interaction_generator import UserArticleInteractionGenerator
 # Create your tests here.
 
 
@@ -74,42 +71,20 @@ class ArticleServiceTestCase:
             sum += ArticleService().get_articles_by_category_id_including_children(i).count()
         print(sum)
 
-class PeriodicTaskPerformer:
-    def performTasks(self):
-        beg = 32
-        end = 3
-        id = beg
+class GeneratorTestCase:
+    def generate(self):
+        for user in UserProfile.objects.all():
+            uaig = UserArticleInteractionGenerator()
+            for j in range(3, 14):
+                perc = (5 + j) / 300.0
+                uaig.generate(user_id=user.id, category_id=j, percentage_of_newest_articles=perc)
 
-        a = Aggregator()
-        while id >= end:
-            a.aggregate(category_id=id)
-            id -= 1
-
-        contentEngine = ContentEngine()
-        for i in range(14):
-            if i < 3: continue
-            contentEngine.train(i)
 #--------#--------#--------#--------#--------#--------#--------#--------#--------#--------#--------
 #print(SimilarArticleListService().get_similar_articles(158))
 
 #print(SimilarArticleListService().get_similiarity_list(article_id=158))
 #resulting = [1, 2, 3, 4] + list(set([3, 4, 5]) - set([1, 2, 3, 4]))
 #print(resulting)
-
-class ReadRatingsTest:
-    def read_ratings(self, flname):
-        Rating = namedtuple("Rating", ["user_id", "movie_id", "rating", "timestamp"])
-        ratings = []
-        with open(flname) as fl:
-            for ln in fl:
-                user_id, movie_id, rating, timestamp = ln.strip().split("::")
-                ratings.append(Rating(user_id=int(user_id) - 1,
-                             movie_id=int(movie_id) - 1,
-                             rating=float(rating),
-                             timestamp=int(timestamp)))
-        return ratings
-
-
 
 """
 rr = ReadRatingsTest().read_ratings("ordinaryPython36/ml-1m/ratings.dat") #  actual user_ids and movie-ids are +1
@@ -122,10 +97,24 @@ for user in user_recommended_movies_dict.keys():
 #    print(r.user_id, r.movie_id, r.rating, r.timestamp)
 """
 
-#uaig = UserArticleInteractionGenerator()
-#uaig.generate(user_id=5, category_id=11, percentage_of_newest_articles=0.5)
 
-#PeriodicTaskPerformer().performTasks()
+
+# get  articles in the last 7 days most frequently accessed by the most similar users
+#print(articles)
+#article_set = list(article.article for article in articles)#filter(date__gte=datetime_begin).count())
+#    print(article.itemcount)
+#print(article_set)
+
+# car = CategoryArticlesRecommender()
+# for i in car.get_recommended(5, 11, 10):
+#    print(i)
+#PeriodicTaskPerformer().perform_all_tasks()
+PeriodicTaskPerformer().perform_user_similarity_calculation_in_category()
+
+
+
+
+#PeriodicTaskPerformer().perform_user_similarity_calculation_in_category()
 
 """
 article = Article.objects.get(id=96)
@@ -134,9 +123,3 @@ for i in similar_articles:
     print(i)
 """
 
-"""
-fs = FrequencySummarizer()
-for a in Article.objects.all():
-    a.summary = fs.summarize(a.text.replace("\n"," "), 5)
-    a.save()
-"""

@@ -102,8 +102,15 @@ class ArticleListByCategory(APIView):
         else:
             return None
 
+# get recommendations for a given category and user
+class CategoryRecommendationList(APIView):
+    def get(self, request, format=None):
+        if "user" in request.GET and "category" in request.GET:
+            user_id = request.GET["user"]
+            category_id = request.GET["category"]
 
-class RecommendedArticleList(APIView):
+# get similar articles
+class RelatedArticleList(APIView):
     def get(self, request, format=None):
         if "article" in request.GET:
             article_id = request.GET["article"]

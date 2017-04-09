@@ -12,6 +12,20 @@ class UserArticleInteractionService:
         uai = UserArticleInteraction(date_accessed=date_accessed, user=user, article=article)
         uai.save()
 
+    def get_user_history(self, user):
+        return UserArticleInteraction.objects.filter(user_id=user)
+
+    def get_user_history_in_category(self, user, category):
+        return UserArticleInteraction.objects.filter(user_id=user, article__feed__category__exact=category)
+
+    def get_users_history_in_category(self, users, category):
+        return UserArticleInteraction.objects.filter(article__feed__category__exact=category, user__in=users)
+    def get_user_histories_in_category(self, category):
+        return UserArticleInteraction.objects.filter(article__feed__category__exact=category)
+
+    def get_users_accessing_category(self, category):
+        return self.get_user_histories_in_category(category).distinct('user').values_list('user', flat=True)
+
 
 class CategoryService:
     def addcategory(self, name):

@@ -82,3 +82,10 @@ url = "http://www.politico.com/magazine/story/2017/02/what-happened-while-trump-
 final_summary = summarizeURL(url, 5)
 print(final_summary)
 """
+
+"""
+fs = FrequencySummarizer()
+for a in Article.objects.all():
+    a.summary = fs.summarize(a.text.replace("\n"," "), 5)
+    a.save()
+"""

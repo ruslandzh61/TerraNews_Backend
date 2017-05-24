@@ -12,13 +12,50 @@ import scipy.sparse as sp
 from collections import namedtuple
 from ordinaryPython36.models import UserToCategory, UserSimilarityInCategory, UserProfile, Category
 from django.core.exceptions import ObjectDoesNotExist
-
+from django.utils import timezone
+from datetime import timedelta
+from itertools import chain
 class ContentEngine:
     def __init__(self, category_id):
         self.category_id = category_id
+
+    def train_for_recommendation(self, user_set, similar_user_set, date_from):
+        SimilarityTuple = namedtuple("Similarity", ["article_id", "similar_article_id", "similarity_ratio"])
+        temp = user_set | similar_user_set
+        article_list_of_dicts = temp.values('id', 'text').order_by('id')
+        if article_list_of_dicts.count() < 1:
+            return
+
+        artcle_ids = article_list_of_dicts.values_list('id', flat=True)
+        artcle_texts = article_list_of_dicts.values_list('text', flat=True)
+        tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 3), min_df=0, stop_words='english')
+
+        tfidf_matrix = tf.fit_transform(artcle_texts)
+
+        cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
+
+        for idx in range(0, article_list_of_dicts.count()):  # article_dic instead idx and row
+            # article_ids[idx] - current article id
+            similar_indices = cosine_similarities[idx].argsort()[:-12:-1]  # get indices of 10 most similar items
+            similar_articles = []
+            similarities = []
+            # if article read by user to which recommend
+            if user_set.filter(id=artcle_ids[idx]).exists():
+                for i in similar_indices:
+                    # if the same article
+                    if i == idx:
+                        continue
+                    # if 'similar' article not in articles user have read then create tuple
+                    if not user_set.filter(id=artcle_ids[int(i)]).exists():
+                        similarities.append(SimilarityTuple(article_id=artcle_ids[idx],
+                                                            similar_article_id=artcle_ids[int(i)],
+                                                            similarity_ratio=cosine_similarities[idx][i]))
+
     def train(self):
+        date = timezone.now()
+        date -= timedelta(days=30)
         article_list_of_dicts = ArticleService().get_articles_by_category_id_including_children(
-            self.category_id).values('id', 'text').order_by('id')
+            self.category_id).filter(date__gt=date).values('id', 'text').order_by('id')
         if article_list_of_dicts.count() < 1:
             return
 
@@ -60,10 +97,12 @@ class ContentEngine:
         return SimilarArticleListService().get_similar_articles(article)
 
 class UserArticleInterractionsGetter:
-    def get(self, category_id):
+    def get(self, category_id, date_from):
         Rating = namedtuple("Rating", ["user_id", "article_id", "rating", "date_accessed"])
         ratings = []
-        for interaction in UserArticleInteractionService().get_user_histories_in_category(category_id):
+        users = UserProfile.objects.all()
+        for interaction in UserArticleInteractionService().get_users_history_in_category(
+                category=category_id, date_from=date_from, users=users):
             user_id = interaction.user_id
             article_id = interaction.article_id
             date_accessed = interaction.date_accessed
@@ -73,9 +112,32 @@ class UserArticleInterractionsGetter:
                                   date_accessed=date_accessed))
         return ratings
 
+    def get_with_similar_articles(self, category_id, date_from):
+        Rating = namedtuple("Rating", ["user_id", "article_id", "rating", "date_accessed"])
+        ratings = []
+        users = UserProfile.objects.all()
+        for interaction in UserArticleInteractionService().get_users_history_in_category(
+                category=category_id, date_from=date_from, users=users):
+            user_id = interaction.user_id
+            article_id = interaction.article_id
+            date_accessed = interaction.date_accessed
+            ratings.append(Rating(user_id=user_id,
+                                  article_id=article_id,
+                                  rating=1.0,  # float(rating), so far only 1.0 rating when user opened article
+                                  date_accessed=date_accessed))
+            closest_articles = SimilarArticleListService().get_similar_articles(article_id=article_id)
+            if closest_articles is not None:
+                for closest_article in closest_articles:
+                    ratings.append(Rating(user_id=user_id,
+                                      article_id=closest_article.id,
+                                      rating=1.0,  # float(rating), so far only 1.0 rating when user opened article
+                                      date_accessed=date_accessed))
+            #multiply full 1.0 rating by the (0.5 + similarity of closest articles)
+        return ratings
+
 class KNN:
     # KNN for each category
-    def __init__(self, category_id):
+    def __init__(self, category_id, date_from=None):
         self.category_id = category_id
         # observer pattern is used, when category_id is changed ratings and users are updated correspondingly
         #store ratings
@@ -83,6 +145,10 @@ class KNN:
         # store users who accessed at least one article in a given category
         self.__users__ = None
         self.__is_empty__ = False
+        self.__date_from__=date_from
+        if self.__date_from__ is None:
+            self.__date_from__ = timezone.now()
+            self.__date_from__ -= timedelta(days=7)
 
     def perform_user_similarity_calculation(self):
         self.__prepare_data__()
@@ -137,9 +203,12 @@ class KNN:
 
     def __prepare_data__(self):
         # fetch ratings
-        self.__ratings__ = UserArticleInterractionsGetter().get(category_id=self.category_id)
+        self.__ratings__ = UserArticleInterractionsGetter().get_with_similar_articles(
+            category_id=self.category_id, date_from=self.__date_from__)
         # get users who accessed at least one article in a given category
-        self.__users__ = list(UserArticleInteractionService().get_users_accessing_category(category=self.category_id))
+
+        self.__users__ = list(UserArticleInteractionService().get_users_accessing_category(
+            category=self.category_id, date_from=self.__date_from__))
 
         # if there are no users who accessed articles in category or only one, do nothing,
         # since there are no potential closest neighbors

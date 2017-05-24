@@ -5,6 +5,7 @@ class UserProfileService:
     def addUserProfile(self, uid, name=None, email=None, picture=None):
         userProfile = UserProfile(uid=uid, name=name, email=email, picture=picture)
         userProfile.save()
+        return userProfile
 
 
 class UserArticleInteractionService:
@@ -15,17 +16,24 @@ class UserArticleInteractionService:
     def get_user_history(self, user):
         return UserArticleInteraction.objects.filter(user_id=user)
 
-    def get_user_history_in_category(self, user, category):
-        return UserArticleInteraction.objects.filter(user_id=user, article__feed__category__exact=category)
+    def get_user_history_in_category(self, user, category, date_from=None):
+        history = UserArticleInteraction.objects.filter(
+            user_id=user, article__feed__category__exact=category)
+        if date_from is not None:
+             history = history.filter(date_accessed__gt=date_from)
+        return history
 
-    def get_users_history_in_category(self, users, category):
-        return UserArticleInteraction.objects.filter(article__feed__category__exact=category, user__in=users)
-    def get_user_histories_in_category(self, category):
-        return UserArticleInteraction.objects.filter(article__feed__category__exact=category)
+    def get_users_history_in_category(self, users, category, date_from=None):
+        history = UserArticleInteraction.objects.filter(
+            article__feed__category__exact=category, user__in=users)
+        if date_from is not None:
+             history = history.filter(date_accessed__gt=date_from)
+        return history
 
-    def get_users_accessing_category(self, category):
-        return self.get_user_histories_in_category(category).distinct('user').values_list('user', flat=True)
-
+    def get_users_accessing_category(self, category, date_from=None):
+        users = UserProfile.objects.all()
+        return self.get_users_history_in_category(
+            users=users, category=category, date_from=date_from).distinct('user').values_list('user', flat=True)
 
 class CategoryService:
     def addcategory(self, name):

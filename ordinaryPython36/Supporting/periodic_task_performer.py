@@ -16,7 +16,7 @@ class PeriodicTaskPerformer:
     # 2. then for parent categories,
     def perform_aggregation(self):
         a = Aggregator()
-        for category in Category.objects.all().order_by('-id'):
+        for category in Category.obxjects.all().order_by('-id'):
             a.aggregate(category_id=category.id)
 
     def perform_article_similarity_calculation(self):

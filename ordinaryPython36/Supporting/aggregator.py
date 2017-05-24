@@ -1,7 +1,7 @@
 import feedparser
 from ordinaryPython36.Supporting.services import FeedService
 from ordinaryPython36.Supporting.text_summarizer import FrequencySummarizer
-from ordinaryPython36.models import Feed, Article
+from ordinaryPython36.models import Feed, Article, Publisher
 from newspaper import Article as newspaperArticle
 from time import mktime
 from datetime import datetime
@@ -21,7 +21,6 @@ class Aggregator:
             try:
                 print("aggregate: " + feedmodel.url)
                 feed = feedparser.parse(feedmodel.url)
-
                 if 'feed' in feed and 'updated_parsed' in feed.feed:
                     updated_parsed = datetime.fromtimestamp(mktime(feed.feed['updated_parsed']))
                     if feedmodel.last_updated == updated_parsed:

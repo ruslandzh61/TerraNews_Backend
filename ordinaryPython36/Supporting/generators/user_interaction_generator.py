@@ -6,7 +6,7 @@ from ordinaryPython36.Supporting.services import ArticleService
 
 class UserArticleInteractionGenerator():
     # % of newest articles should be defined as decimal number in range [0..1]
-    def generate(self, user_id, category_id, percentage_of_newest_articles):
+    def generate(self, user_id, category_id, percentage_of_newest_articles, short_time=True):
         if percentage_of_newest_articles <= 0.0:
             return
         user = UserProfile.objects.get(id=user_id)
@@ -21,6 +21,7 @@ class UserArticleInteractionGenerator():
         for idx in sampled_indices:
             article_id = idx_article_id_dict[idx]
             article = Article.objects.get(id=article_id)
-            date_accessed = time_generator.generate(article.date)
+            date_accessed = time_generator.generate(short_time=short_time)
+            print(date_accessed)
             UserArticleInteraction.objects.create(user=user, article=article, date_accessed=date_accessed)
-            print("user article interaction generated", idx, article_id, date_accessed)
+            #print("user article interaction generated", idx, article_id, date_accessed)

@@ -26,27 +26,19 @@ class UserProfileList(APIView):
             print("manually add user")
             uid = request.data["uid"]
             if UserProfile.objects.filter(uid=uid).exists():
-                user = UserProfile.objects.get(uid=uid)
-                #user.update(**request.data)
-                print("user updated")
-                if Channel.objects.filter(user=user):
-                    for category in CategoryService().get_root_categories():
-                        print(category)
-                        channel = Channel.objects.create(user=user, is_system_channel=True, name=category.name)
-                        ChannelCategory.objects.create(following_channel=channel, category=category)
-                return Response(status=status.HTTP_201_CREATED)
-
-            #otherwise:
+                return Response(status=status.HTTP_200_OK)
+            #user.update(**request.data)
+            #print("user updated")
             try:
                 user = UserProfile.objects.create(**request.data)
+                return Response(status=status.HTTP_201_CREATED)
             except:
                 user = UserProfileService().addUserProfile(uid=uid)
-
-            for category in CategoryService().get_root_categories():
-                print(category)
-                channel = Channel.objects.create(user=user, is_system_channel=True, name=category.name)
-                ChannelCategory.objects.create(following_channel=channel, category=category)
-            return Response(status=status.HTTP_201_CREATED)
+                for category in CategoryService().get_root_categories():
+                    print(category)
+                    channel = Channel.objects.create(user=user, is_system_channel=True, name=category.name)
+                    ChannelCategory.objects.create(following_channel=channel, category=category)
+                return Response(status=status.HTTP_201_CREATED)
 
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
@@ -169,19 +161,31 @@ class ChannelList(APIView):
 class ChannelArticleList(APIView):
     def get(self, request):
         date_from = timezone.now()
-        date_from -= timedelta(days=9)
+        date_from -= timedelta(days=10)
         if 'channel' in request.GET:
             channel_id = request.GET["channel"]
-            if Channel.objects.filter(id=channel_id).exists():
+            try:
                 channel = Channel.objects.get(id=channel_id)
-
+            except:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
             recommended_articles = []
 
             channel_categories = ChannelCategory.objects.filter(following_channel=channel)
             for channel_category in channel_categories:
-                recommended_articles.extend(UserCategoryRecommendationEngine(
-                    user_id=channel.user, category_id=channel_category.category,
-                datetime_begin=date_from).make_recommendations())
+                # if user is not new recommend articles of similar users as well
+                if UserArticleInteractionService().get_user_history_in_category(
+                        user=channel.user_id).count() > 10:
+                    recommended_articles.extend(UserCategoryRecommendationEngine(
+                        user_id=channel.user, category_id=channel_category.category,
+                        datetime_begin=date_from).make_recommendations())
+                # else recommend only top articles and articles similar to what the user read last time
+                else:
+                    recommended_articles.extend(UserCategoryRecommendationEngine(
+                        user_id=None, category_id=channel_category.category,
+                        datetime_begin=date_from).__get_top_articles__())
+                    recommended_articles.extend(UserCategoryRecommendationEngine(
+                        user_id=None, category_id=channel_category.category,
+                        datetime_begin=date_from).__get_similar_articles__())
 
             channel_publishers = ChannelPublisher.objects.filter(following_channel=channel)
             for channel_publisher in channel_publishers:

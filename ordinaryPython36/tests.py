@@ -17,6 +17,8 @@ from ordinaryPython36.Supporting.generators.datetime_generator import DatetimeGe
 from ordinaryPython36.Supporting.generators.user_interaction_generator import UserArticleInteractionGenerator
 import requests
 from ordinaryPython36.Supporting.serializers import *
+import re
+
 from itertools import chain
 
 # Create your tests here.
@@ -238,11 +240,12 @@ for user in UserProfile.objects.all():
 """
 
 #PeriodicTaskPerformer().perform_user_similarity_calculation_in_category()
+"""
 category_id = 3
 while category_id < 14:
     Aggregator().aggregate(3)
     category_id += 1
-
+"""
 """
 #ContEngine().train()
 #feed=Feed.objects.get(id=13)
@@ -317,3 +320,8 @@ print(c.count())
 """
 
 #UserArticleInteraction.objects.create(user_id=25, article_id=26959)
+
+date = timezone.now() - timedelta(days=30)
+for article in Article.objects.filter(date__gt=date):
+    article.summary = re.sub("<div>.*<\/div>", "", article.summary)
+    article.save()
